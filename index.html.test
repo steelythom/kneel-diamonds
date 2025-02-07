@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: radial-gradient(
+                circle at center,
+                #e8e9eb 0%,
+                #d4d5d8 30%,
+                #babbbe 65%,
+                #a1a2a5 100%
+            );
+            /* Add a subtle texture overlay */
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(255,255,255, 0.1),
+                    rgba(255,255,255, 0.1) 1px,
+                    transparent 1px,
+                    transparent 2px
+                ),
+                radial-gradient(
+                    circle at center,
+                    #e8e9eb 0%,
+                    #d4d5d8 30%,
+                    #babbbe 65%,
+                    #a1a2a5 100%
+                );
+        }
+
+        .questions-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .question-group {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08),
+                        0 4px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            top: 0;
+            backdrop-filter: blur(4px);
+        }
+
+        .question-group:hover {
+            background-color: #f8fafd;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset,
+                        0 2px 3px rgba(0, 0, 0, 0.08) inset;
+            top: 1px;
+        }
+
+        .question-group:hover .radio-option label {
+            font-weight: bold;
+        }
+
+        .question-title {
+            margin: 0 0 16px 0;
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 1.1em;
+        }
+
+        .radio-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .radio-option {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-option label {
+            padding: 4px 0;
+            color: #444;
+            transition: font-weight 0.2s ease-in-out;
+        }
+
+        input[type="radio"] {
+            accent-color: #2563eb;
+            width: 16px;
+            height: 16px;
+        }
+
+        .radio-option:hover label {
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="questions-container">
+            <!-- Question 1 -->
+            <div class="question-group">
+                <div class="question-title">What is your favorite color?</div>
+                <div class="radio-container">
+                    <div class="radio-option">
+                        <input type="radio" name="question1" value="red">
+                        <label>Red</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="question1" value="blue">
+                        <label>Blue</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="question1" value="green">
+                        <label>Green</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-group">
+                <div class="question-title">How often do you exercise?</div>
+                <div class="radio-container">
+                    <div class="radio-option">
+                        <input type="radio" name="question2" value="daily">
+                        <label>Daily</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="question2" value="weekly">
+                        <label>2-3 times per week</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="question2" value="rarely">
+                        <label>Rarely</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-group">
+                <div class="question-title">What is your preferred transportation?</div>
+                <div class="radio-container">
+                    <div class="radio-option">
+                        <input type="radio" name="question3" value="car">
+                        <label>Car</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="question3" value="public">
+                        <label>Public Transportation</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="question3" value="bicycle">
+                        <label>Bicycle</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

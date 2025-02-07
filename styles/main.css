@@ -1,0 +1,149 @@
+:root {
+    /*--background-color: rgb(255, 242, 215);
+    --background-color: rgb(0,0,255);
+    --button-color: rgb(255, 204, 149);
+    --button-hover-color: rgb(255, 156, 49);
+    --text-color: rgb(0, 0, 0);
+    --background-color-stop1:rgb(46, 46, 203);
+    --background-color-stop2:rgb(127, 127, 255);*/
+    --hp: 240; /*  primary hue is blue */
+    --sp: 20%; /*  saturation */
+    --lp: 60%; /*  lightness */
+    --hs: 20; /*  secondary hue is orange*/
+    --ss: 70%; /* saturation */
+    --ls: 60%; /*  lightness */
+   /*  --base-color:hsl(240, 100%, 50%); */
+    /* --background-color: hsl(240,100%,25%); */
+    --base-color: hsl(var(--hp), var(--sp), var(--lp));
+    --base-light: hsl(var(--hp), var(--sp), calc(var(--lp) + 25%));
+    --base-lighter: hsl(var(--hp), var(--sp), calc(var(--lp) + 30%));
+    --base-lightest: hsl(var(--hp), var(--sp), calc(var(--lp) + 40%));
+    --secondary-color: hsl(var(--hs), var(--ss), var(--ls));
+    --secondary-light: hsl(var(--hs), var(--ss), calc(var(--ls) + 25%));
+    --secondary-lighter: hsl(var(--hs), var(--ss), calc(var(--ls) + 30%));
+    --secondary-lightest: hsl(var(--hs), var(--ss), calc(var(--ls) + 40%));
+}
+/* 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: rgb(198, 154, 255);
+        --background-color: rgba(118, 104, 131, 0.064);
+    }
+} */
+
+
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--base-color);
+    color: var(--text-color);
+    background: radial-gradient(
+        circle at top left,
+        var(--base-lightest) 0%,
+        var(--base-lighter) 10%,
+        var(--base-light) 25%,
+        var(--base-color) 100%
+    )
+}
+
+
+/* rgb(255, 233, 210) 0%,
+rgb(255, 209, 161) 30%,
+rgb(255, 186, 111) 65%,
+rgb(255, 156, 49) 100% */
+
+.questions-container {
+  /*   background-color: var(--secondary-color) ;  */  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.question-group {
+    background-color: var(--secondary-lighter);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08),
+                0 4px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    backdrop-filter: blur(4px);
+    background-image: radial-gradient(
+        circle at top left,
+        var(--secondary-lightest) 0%,
+        var(--secondary-lighter) 50%,
+        var(--secondary-light) 100%,
+        var(--secondary-color) 100%
+    )
+}
+
+.question-group:hover {
+    background-color: var(--secondary-light);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset,
+                0 2px 3px rgba(0, 0, 0, 0.08) inset;
+    top: 1px;
+}
+
+/*
+.question-group:hover .radio-option label {
+    font-weight: bold;
+}
+*/
+.radio-option:hover label {
+    font-weight: bold;
+}
+
+.question-title {
+    margin: 0 0 16px 0;
+    font-weight: bold;
+    color: #1a1a1a;
+    font-size: 1.1em;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-option {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-option label {
+    padding: 4px 0;
+    color: #444;
+    transition: font-weight 0.2s ease-in-out;
+}
+
+input[type="radio"] {
+    accent-color: #2563eb;
+    width: 16px;
+    height: 16px;
+}
+
+.radio-option:hover label {
+    color: #2563eb;
+}
+
+.order-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-list-item-container {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
